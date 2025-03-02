@@ -6,6 +6,12 @@ A simple yet powerful command-line application for managing a bookstore's invent
 
 The **Book Store Management System** is a Python-based command-line application designed to streamline bookstore operations. It offers separate functionalities for administrators and customers through an intuitive interface with stylized menus, tables, and prompts. The system uses CSV files for persistent storage to manage books, user accounts, and purchase records, making it an efficient tool for small-scale bookstore management.
 
+## Workplan Diagram
+
+[Online View](https://app.eraser.io/workspace/VE0ZjoGubLeew5Nyl4bh?origin=share)
+
+![Workplan](./workplan.png)
+
 ## 🌟 Features
 
 ### For Administrators:
