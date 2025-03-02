@@ -1,6 +1,5 @@
 from user.user import User
-
-USER_FIELDNAMES = ['username', 'password', 'full_name', 'email', 'role', 'date_joined']
+from datetime import datetime
 
 def update_user(user_handler):
     print("\n=== Update a User ===")
@@ -71,13 +70,11 @@ def update_user(user_handler):
         else:
             role = role_input
 
-    date_joined = None
-    while date_joined is None:
-        date_input = input(f"Enter new date joined [{user_to_update['date_joined']}]: ").strip()
-        if not date_input:
-            date_joined = user_to_update['date_joined'] if user_to_update['date_joined'] else None
-        else:
-            date_joined = date_input
+    # Preserve the original date_joined
+    date_joined = user_to_update.get('date_joined', '')
+    if not date_joined:
+        # If there was no date_joined, add the current date
+        date_joined = datetime.now().strftime("%Y-%m-%d")
 
     updated_user = User(username_to_update, password, full_name, email, role, date_joined)
 
@@ -90,6 +87,7 @@ def update_user(user_handler):
                 'full_name': updated_user.full_name,
                 'email': updated_user.email,
                 'role': updated_user.role,
+                'date_joined': updated_user.date_joined
             })
         else:
             updated_users.append(user)

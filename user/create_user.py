@@ -1,7 +1,5 @@
 from user.user import User
-from data_handler import DataHandler
-
-USER_FIELDNAMES = ['username', 'password', 'full_name', 'email', 'role', 'date_joined']
+from datetime import datetime
 
 def create_user(user_handler):
     print("\n=== Create a New User ===")
@@ -60,8 +58,7 @@ def create_user(user_handler):
             print("Error: Role must be 'user' or 'admin'.")
         else:
             role = role_input
-
-
+    
     new_user = User(username, password, full_name, email, role)
 
     user_dict = {
@@ -69,7 +66,7 @@ def create_user(user_handler):
         'password': new_user.password,
         'full_name': new_user.full_name,
         'email': new_user.email,
-        'role': new_user.role,
+        'role': new_user.role
     }
     user_handler.append_data(user_dict)
     print(f"User '{username}' created successfully!")
